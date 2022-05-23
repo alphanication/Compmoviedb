@@ -1,4 +1,4 @@
-package com.example.compmoviedb.screens
+package com.example.compmoviedb.presentation.screens
 
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
@@ -15,7 +15,7 @@ import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import com.example.compmoviedb.navigation.Screens
+import com.example.compmoviedb.presentation.navigation.Screens
 import kotlinx.coroutines.delay
 
 @Composable
