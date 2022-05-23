@@ -1,14 +1,13 @@
-package com.example.compmoviedb.navigation
+package com.example.compmoviedb.presentation.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.example.compmoviedb.screens.DetailsScreen
-import com.example.compmoviedb.screens.MainScreen
-import com.example.compmoviedb.screens.MainViewModel
-import com.example.compmoviedb.screens.SplashScreen
-import com.example.compmoviedb.utils.Constants
+import com.example.compmoviedb.presentation.screens.DetailsScreen
+import com.example.compmoviedb.presentation.screens.MainScreen
+import com.example.compmoviedb.presentation.screens.SplashScreen
+import com.example.compmoviedb.presentation.utils.Constants
 
 sealed class Screens(val route: String) {
     object Splash : Screens(route = Constants.Screens.SPLASH_SCREEN)

@@ -1,4 +1,4 @@
-package com.example.compmoviedb.utils
+package com.example.compmoviedb.presentation.utils
 
 object Constants {
     object Screens {

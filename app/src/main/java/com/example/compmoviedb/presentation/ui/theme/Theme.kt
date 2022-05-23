@@ -1,4 +1,4 @@
-package com.example.compmoviedb.ui.theme
+package com.example.compmoviedb.presentation.ui.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.MaterialTheme

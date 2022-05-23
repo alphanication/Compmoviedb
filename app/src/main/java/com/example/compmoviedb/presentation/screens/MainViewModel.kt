@@ -1,4 +1,4 @@
-package com.example.compmoviedb.screens
+package com.example.compmoviedb.presentation.screens
 
 import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
