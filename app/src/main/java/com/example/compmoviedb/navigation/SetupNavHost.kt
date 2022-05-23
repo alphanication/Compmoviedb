@@ -25,7 +25,7 @@ fun SetupNavHost(navController: NavHostController) {
         composable(route = Screens.Splash.route) {
             SplashScreen(navController = navController)
         }
-        composable(route = Screens.Main.route + "/{mViewModel}") {
+        composable(route = Screens.Main.route) {
             MainScreen(navController = navController)
         }
         composable(route = Screens.Details.route + "/{movieId}") { backStackEntry ->
