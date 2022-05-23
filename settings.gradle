@@ -16,3 +16,5 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Compmoviedb"
 include ':app'
+include ':domain'
+include ':data'
