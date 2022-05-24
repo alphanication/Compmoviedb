@@ -1,9 +1,9 @@
 package com.example.compmoviedb.presentation.navigation
 
 import androidx.compose.runtime.Composable
-import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import com.example.compmoviedb.presentation.screens.details.DetailsScreen
 import com.example.compmoviedb.presentation.screens.main.MainScreen
 import com.example.compmoviedb.presentation.screens.splash.SplashScreen
@@ -16,16 +16,22 @@ sealed class Screens(val route: String) {
 }
 
 @Composable
-fun SetupNavHost(navController: NavHostController) {
+fun SetupNavHost() {
+    val navController = rememberNavController()
+
     NavHost(
         navController = navController,
         startDestination = Screens.Splash.route
     ) {
         composable(route = Screens.Splash.route) {
-            SplashScreen(navController = navController)
+            SplashScreen(
+                navController = navController
+            )
         }
         composable(route = Screens.Main.route) {
-            MainScreen(navController = navController)
+            MainScreen(
+                navController = navController
+            )
         }
         composable(route = Screens.Details.route + "/{movieId}") { backStackEntry ->
             DetailsScreen(
