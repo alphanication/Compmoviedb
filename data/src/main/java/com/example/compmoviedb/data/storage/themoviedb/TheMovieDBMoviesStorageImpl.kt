@@ -16,7 +16,10 @@ class TheMovieDBMoviesStorageImpl(private val movieDBApiInterface: MovieDBApiInt
     override suspend fun getMoviesPopular(): Flow<Response<ListMoviesPopular>> = callbackFlow {
         trySend(Response.Loading())
 
-        movieDBApiInterface.getListPopularMovies("e57c71791b41b1b6d48678746aa69e44", "ru")
+        movieDBApiInterface.getListPopularMovies(
+            key = MovieDBConstants.MOVIE_DB_KEY,
+            language = MovieDBConstants.LANGUAGE_RU
+        )
             .enqueue(object : Callback<ListMoviesPopularEntity> {
 
                 override fun onResponse(
