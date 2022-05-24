@@ -4,9 +4,9 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.example.compmoviedb.presentation.screens.DetailsScreen
-import com.example.compmoviedb.presentation.screens.MainScreen
-import com.example.compmoviedb.presentation.screens.SplashScreen
+import com.example.compmoviedb.presentation.screens.details.DetailsScreen
+import com.example.compmoviedb.presentation.screens.main.MainScreen
+import com.example.compmoviedb.presentation.screens.splash.SplashScreen
 import com.example.compmoviedb.presentation.utils.Constants
 
 sealed class Screens(val route: String) {
