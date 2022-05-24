@@ -1,4 +1,4 @@
-package com.example.compmoviedb.presentation.screens
+package com.example.compmoviedb.presentation.screens.splash
 
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
