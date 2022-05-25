@@ -15,7 +15,7 @@ import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import com.example.compmoviedb.presentation.navigation.Screens
+import com.example.compmoviedb.presentation.navigation.NavRoute
 import kotlinx.coroutines.delay
 
 @Composable
@@ -32,7 +32,7 @@ fun SplashScreen(navController: NavController) {
     LaunchedEffect(key1 = Unit) {
         stateAnimate = true
         delay(2000)
-        navController.navigate(Screens.Main.route)
+        navController.navigate(NavRoute.Main.route)
     }
 
     Splash(alpha = alphaAnimation.value)
