@@ -3,7 +3,7 @@ package com.example.compmoviedb.data.storage.themoviedb
 import com.example.compmoviedb.data.mappers.ListMoviesPopularEntityMapper
 import com.example.compmoviedb.data.storage.MoviesStorage
 import com.example.compmoviedb.data.storage.models.ListMoviesPopularEntity
-import com.example.compmoviedb.domain.models.ListMoviesPopular
+import com.example.compmoviedb.domain.models.moviespopular.ListMoviesPopularD
 import com.example.compmoviedb.domain.models.Response
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.channels.awaitClose
@@ -13,7 +13,7 @@ import retrofit2.Call
 import retrofit2.Callback
 
 class TheMovieDBMoviesStorageImpl(private val movieDBApiInterface: MovieDBApiInterface) : MoviesStorage {
-    override suspend fun getMoviesPopular(): Flow<Response<ListMoviesPopular>> = callbackFlow {
+    override suspend fun getMoviesPopular(): Flow<Response<ListMoviesPopularD>> = callbackFlow {
         trySend(Response.Loading())
 
         movieDBApiInterface.getListPopularMovies(

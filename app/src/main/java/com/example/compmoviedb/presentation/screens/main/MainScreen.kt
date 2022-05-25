@@ -28,7 +28,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import coil.annotation.ExperimentalCoilApi
 import coil.compose.rememberImagePainter
-import com.example.compmoviedb.domain.models.MoviePopularDetails
+import com.example.compmoviedb.domain.models.moviespopular.MoviePopularDetailsD
 import com.example.compmoviedb.presentation.navigation.NavRoute
 import com.example.compmoviedb.presentation.utils.Constants
 import java.util.*
@@ -61,7 +61,7 @@ fun MainScreen(navController: NavController) {
 }
 
 @Composable
-fun MovieItem(navController: NavController, item: MoviePopularDetails) {
+fun MovieItem(navController: NavController, item: MoviePopularDetailsD) {
     Card(
         modifier = Modifier
             .wrapContentSize()
