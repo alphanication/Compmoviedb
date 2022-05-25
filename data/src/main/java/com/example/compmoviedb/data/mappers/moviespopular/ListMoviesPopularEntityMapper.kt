@@ -1,5 +1,6 @@
-package com.example.compmoviedb.data.mappers
+package com.example.compmoviedb.data.mappers.moviespopular
 
+import com.example.compmoviedb.data.mappers.MapperData
 import com.example.compmoviedb.data.storage.models.ListMoviesPopularEntity
 import com.example.compmoviedb.domain.models.moviespopular.ListMoviesPopularD
 
@@ -7,7 +8,7 @@ class ListMoviesPopularEntityMapper : MapperData<ListMoviesPopularEntity, ListMo
     override fun mapFromEntity(type: ListMoviesPopularEntity): ListMoviesPopularD {
         return ListMoviesPopularD(
             page = type.page,
-            moviesPopularDetails = ListResultEntityMapper().mapFromEntity(type.results),
+            moviesPopularDetails = ResultEntityMapper().mapFromEntity(type.results),
             total_pages = type.total_pages,
             total_results = type.total_results
         )
