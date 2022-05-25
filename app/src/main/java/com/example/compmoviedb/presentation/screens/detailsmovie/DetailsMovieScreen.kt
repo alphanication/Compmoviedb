@@ -1,4 +1,4 @@
-package com.example.compmoviedb.presentation.screens.details
+package com.example.compmoviedb.presentation.screens.detailsmovie
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavController
