@@ -4,6 +4,7 @@ package com.example.compmoviedb.presentation.screens.main
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -28,6 +29,7 @@ import androidx.navigation.NavController
 import coil.annotation.ExperimentalCoilApi
 import coil.compose.rememberImagePainter
 import com.example.compmoviedb.domain.models.MoviePopularDetails
+import com.example.compmoviedb.presentation.navigation.NavRoute
 import com.example.compmoviedb.presentation.utils.Constants
 import java.util.*
 
@@ -63,7 +65,10 @@ fun MovieItem(navController: NavController, item: MoviePopularDetails) {
     Card(
         modifier = Modifier
             .wrapContentSize()
-            .padding(6.dp),
+            .padding(6.dp)
+            .clickable {
+                       navController.navigate(NavRoute.DetailsMovie.route + "/${item.id}")
+            },
         shape = CutCornerShape(20.dp),
         border = BorderStroke(2.dp, Color.Black)
     ) {
