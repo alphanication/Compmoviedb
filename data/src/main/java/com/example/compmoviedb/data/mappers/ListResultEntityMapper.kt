@@ -1,15 +1,15 @@
 package com.example.compmoviedb.data.mappers
 
-import com.example.compmoviedb.domain.models.MoviePopularDetails
+import com.example.compmoviedb.domain.models.moviespopular.MoviePopularDetailsD
 import com.example.compmoviedb.data.storage.models.Result
 
-class ListResultEntityMapper : MapperData<List<Result>, List<MoviePopularDetails>> {
-    override fun mapFromEntity(type: List<Result>): List<MoviePopularDetails> {
-        val listResult = ArrayList<MoviePopularDetails>()
+class ListResultEntityMapper : MapperData<List<Result>, List<MoviePopularDetailsD>> {
+    override fun mapFromEntity(type: List<Result>): List<MoviePopularDetailsD> {
+        val listResult = ArrayList<MoviePopularDetailsD>()
 
         type.forEach { resultEntity ->
             listResult.add(
-                MoviePopularDetails(
+                MoviePopularDetailsD(
                     adult = resultEntity.adult,
                     backdrop_path = resultEntity.backdrop_path,
                     genre_ids = resultEntity.genre_ids,

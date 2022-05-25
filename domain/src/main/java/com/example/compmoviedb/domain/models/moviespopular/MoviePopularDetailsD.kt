@@ -1,6 +1,6 @@
-package com.example.compmoviedb.domain.models
+package com.example.compmoviedb.domain.models.moviespopular
 
-data class MoviePopularDetails(
+data class MoviePopularDetailsD(
     val adult: Boolean,
     val backdrop_path: String,
     val genre_ids: List<Int>,
