@@ -9,31 +9,25 @@ import com.example.compmoviedb.presentation.screens.main.MainScreen
 import com.example.compmoviedb.presentation.screens.splash.SplashScreen
 import com.example.compmoviedb.presentation.utils.Constants
 
-sealed class Screens(val route: String) {
-    object Splash : Screens(route = Constants.Screens.SPLASH_SCREEN)
-    object Main : Screens(route = Constants.Screens.MAIN_SCREEN)
-    object Details : Screens(route = Constants.Screens.DETAILS_SCREEN)
-}
-
 @Composable
 fun SetupNavHost() {
     val navController = rememberNavController()
 
     NavHost(
         navController = navController,
-        startDestination = Screens.Splash.route
+        startDestination = NavRoute.Splash.route
     ) {
-        composable(route = Screens.Splash.route) {
+        composable(route = NavRoute.Splash.route) {
             SplashScreen(
                 navController = navController
             )
         }
-        composable(route = Screens.Main.route) {
+        composable(route = NavRoute.Main.route) {
             MainScreen(
                 navController = navController
             )
         }
-        composable(route = Screens.Details.route + "/{movieId}") { backStackEntry ->
+        composable(route = NavRoute.Details.route + "/{movieId}") { backStackEntry ->
             DetailsScreen(
                 navController = navController,
                 movieId = backStackEntry.arguments?.getInt("movieId") ?: 0
