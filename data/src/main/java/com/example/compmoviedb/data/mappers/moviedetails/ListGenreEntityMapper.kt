@@ -12,8 +12,8 @@ class ListGenreEntityMapper : MapperData<List<Genre>, List<GenreD>> {
         type.forEach { genre ->
             listGenreD.add(
                 GenreD(
-                    id = genre.id,
-                    name = genre.name
+                    id = genre.id ?: 0,
+                    name = genre.name ?: ""
                 )
             )
         }

@@ -12,10 +12,10 @@ class ListProductionCompanyEntityMapper : MapperData<List<ProductionCompany>, Li
         type.forEach { productionCompany ->
             listProductionCompanyD.add(
                 ProductionCompanyD(
-                    id = productionCompany.id,
-                    logo_path = productionCompany.logo_path,
-                    name = productionCompany.name,
-                    origin_country = productionCompany.origin_country
+                    id = productionCompany.id ?: 0,
+                    logo_path = productionCompany.logo_path ?: "",
+                    name = productionCompany.name ?: "",
+                    origin_country = productionCompany.origin_country ?: ""
                 )
             )
         }
