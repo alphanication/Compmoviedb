@@ -3,7 +3,7 @@ package com.example.compmoviedb.domain.models.moviedetails
 data class MovieDetailsD(
     val adult: Boolean,
     val backdrop_path: String,
-    val belongs_to_collection: Any,
+    val belongs_to_collection: BelongsToCollectionD,
     val budget: Int,
     val genreMS: List<GenreD>,
     val homepage: String,

@@ -11,7 +11,8 @@ class MovieDetailsEntityMapper : MapperData<MovieDetailsEntity, MovieDetailsD> {
         return MovieDetailsD(
             adult = type.adult,
             backdrop_path = type.backdrop_path,
-            belongs_to_collection = type.belongs_to_collection,
+            belongs_to_collection = BelongToCollectionEntityMapper()
+                .mapFromEntity(type = type.belongs_to_collection),
             budget = type.budget,
             genreMS = ListGenreEntityMapper().mapFromEntity(type = type.genres),
             homepage = type.homepage,

@@ -1,5 +1,6 @@
 package com.example.compmoviedb.data.storage.themoviedb
 
+import android.util.Log
 import com.example.compmoviedb.data.storage.MoviesStorage
 import com.example.compmoviedb.data.storage.models.moviedetails.MovieDetailsEntity
 import com.example.compmoviedb.data.storage.models.moviespopular.ListMoviesPopularEntity
