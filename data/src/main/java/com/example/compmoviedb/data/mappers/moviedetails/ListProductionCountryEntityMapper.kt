@@ -12,8 +12,8 @@ class ListProductionCountryEntityMapper : MapperData<List<ProductionCountry>, Li
         type.forEach { productionCountry ->
             listProductionCompanyD.add(
                 ProductionCountryD(
-                    iso_3166_1 = productionCountry.iso_3166_1,
-                    name = productionCountry.name
+                    iso_3166_1 = productionCountry.iso_3166_1 ?: "",
+                    name = productionCountry.name ?: ""
                 )
             )
         }

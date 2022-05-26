@@ -12,8 +12,8 @@ class ListSpokenLanguageEntityMapper : MapperData<List<SpokenLanguage>, List<Spo
         type.forEach { spokenLanguage ->
             listSpokenLanguageD.add(
                 SpokenLanguageD(
-                    iso_639_1 = spokenLanguage.iso_639_1,
-                    name = spokenLanguage.name
+                    iso_639_1 = spokenLanguage.iso_639_1 ?: "",
+                    name = spokenLanguage.name ?: ""
                 )
             )
         }

@@ -13,7 +13,7 @@ data class MovieDetailsD(
     val original_title: String,
     val overview: String,
     val popularity: Double,
-    val poster_path: Any,
+    val poster_path: String,
     val production_companies: List<ProductionCompanyD>,
     val production_countries: List<ProductionCountryD>,
     val release_date: String,
