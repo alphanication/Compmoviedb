@@ -104,30 +104,29 @@ fun MovieItem(navController: NavController, item: MoviePopularDetailsD) {
             Spacer(modifier = Modifier.padding(top = 10.dp))
 
             Row(
-                modifier = Modifier.padding(horizontal = 10.dp),
-                horizontalArrangement = Arrangement.Start
+                    modifier = Modifier.padding(horizontal = 10.dp),
+                    horizontalArrangement = Arrangement.Start
             ) {
                 Text(
-                    text = Constants.Keys.VOTE_AVERAGE,
-                    fontWeight = FontWeight.Bold,
-                    textAlign = TextAlign.Start
-                )
-
-                Text(text = item.vote_average.toString())
-            }
-
-            Row(
-                modifier = Modifier.padding(horizontal = 10.dp),
-                horizontalArrangement = Arrangement.Start
-            ) {
-                Text(
-                    text = Constants.Keys.RELEASED,
-                    fontWeight = FontWeight.Bold,
+                        text = Constants.Keys.RELEASED,
+                        fontWeight = FontWeight.Bold,
                 )
 
                 Text(text = item.release_date)
             }
 
+            Row(
+                    modifier = Modifier.padding(horizontal = 10.dp),
+                    horizontalArrangement = Arrangement.Start
+            ) {
+                Text(
+                        text = Constants.Keys.VOTE_AVERAGE,
+                        fontWeight = FontWeight.Bold,
+                        textAlign = TextAlign.Start
+                )
+
+                Text(text = item.vote_average.toString())
+            }
         }
     }
 }
