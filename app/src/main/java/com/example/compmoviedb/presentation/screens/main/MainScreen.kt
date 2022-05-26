@@ -108,7 +108,7 @@ fun MovieItem(navController: NavController, item: MoviePopularDetailsD) {
                 horizontalArrangement = Arrangement.Start
             ) {
                 Text(
-                    text = Constants.Keys.RATING,
+                    text = Constants.Keys.VOTE_AVERAGE,
                     fontWeight = FontWeight.Bold,
                     textAlign = TextAlign.Start
                 )

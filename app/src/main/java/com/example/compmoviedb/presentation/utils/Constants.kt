@@ -10,7 +10,9 @@ object Constants {
     object Keys {
         const val MOVIE_ID = "movie_id"
         const val MOVIEDB_BASE_IMAGE_URL = "https://image.tmdb.org/t/p/w500"
-        const val RATING = "Rating: "
-        const val RELEASED = "Released: "
+        const val VOTE_AVERAGE = "Среднее количество голосов: "
+        const val RELEASED = "Дата релиза: "
+        const val GENRE = "Жанр: "
+        const val PRODUCTION_COUNTRIES = "Страна производства: "
     }
 }
