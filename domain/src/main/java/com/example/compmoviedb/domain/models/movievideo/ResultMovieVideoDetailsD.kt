@@ -1,6 +1,6 @@
 package com.example.compmoviedb.domain.models.movievideo
 
-data class MovieVideoDetailsD(
+data class ResultMovieVideoDetailsD(
     val id: String,
     val iso_3166_1: String,
     val iso_639_1: String,

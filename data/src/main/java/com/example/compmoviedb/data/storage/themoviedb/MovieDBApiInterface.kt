@@ -2,6 +2,7 @@ package com.example.compmoviedb.data.storage.themoviedb
 
 import com.example.compmoviedb.data.storage.models.moviedetails.MovieDetailsEntity
 import com.example.compmoviedb.data.storage.models.moviespopular.ListMoviesPopularEntity
+import com.example.compmoviedb.data.storage.models.movievideo.MovieVideoEntity
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -20,4 +21,11 @@ interface MovieDBApiInterface {
         @Query("api_key") key: String,
         @Query("language") language: String
     ): Call<MovieDetailsEntity>
+
+    @GET("3/movie/{movie_id}/videos")
+    fun getListMovieVideoById(
+        @Path("movie_id") movieId: Int,
+        @Query("api_key") key: String,
+        @Query("language") language: String
+    ): Call<MovieVideoEntity>
 }

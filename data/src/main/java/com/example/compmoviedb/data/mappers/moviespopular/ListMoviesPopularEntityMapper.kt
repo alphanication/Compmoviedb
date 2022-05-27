@@ -9,7 +9,7 @@ class ListMoviesPopularEntityMapper : MapperData<ListMoviesPopularEntity, ListMo
     override fun mapFromEntity(type: ListMoviesPopularEntity): ListMoviesPopularD {
         return ListMoviesPopularD(
             page = type.page,
-            moviesPopularDetails = ResultEntityMapper().mapFromEntity(type.results),
+            moviesPopularDetails = ResultListMoviesEntityMapper().mapFromEntity(type.results),
             total_pages = type.total_pages,
             total_results = type.total_results
         )

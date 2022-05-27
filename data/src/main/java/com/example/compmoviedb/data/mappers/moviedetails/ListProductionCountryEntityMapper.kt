@@ -4,7 +4,8 @@ import com.example.compmoviedb.data.mappers.MapperData
 import com.example.compmoviedb.data.storage.models.moviedetails.ProductionCountry
 import com.example.compmoviedb.domain.models.moviedetails.ProductionCountryD
 
-class ListProductionCountryEntityMapper : MapperData<List<ProductionCountry>, List<ProductionCountryD>> {
+class ListProductionCountryEntityMapper :
+    MapperData<List<ProductionCountry>, List<ProductionCountryD>> {
 
     override fun mapFromEntity(type: List<ProductionCountry>): List<ProductionCountryD> {
         val listProductionCompanyD = ArrayList<ProductionCountryD>()

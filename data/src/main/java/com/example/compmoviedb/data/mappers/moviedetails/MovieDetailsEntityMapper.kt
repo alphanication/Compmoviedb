@@ -13,12 +13,14 @@ class MovieDetailsEntityMapper : MapperData<MovieDetailsEntity, MovieDetailsD> {
             adult = type.adult ?: false,
             backdrop_path = type.backdrop_path ?: "",
             belongs_to_collection = BelongToCollectionEntityMapper()
-                .mapFromEntity(type = type.belongs_to_collection ?: BelongsToCollection(
+                .mapFromEntity(
+                    type = type.belongs_to_collection ?: BelongsToCollection(
                         backdrop_path = "",
                         id = 0,
                         name = "",
                         poster_path = ""
-                )),
+                    )
+                ),
             budget = type.budget ?: 0,
             genreMS = ListGenreEntityMapper().mapFromEntity(type = type.genres ?: listOf()),
             homepage = type.homepage ?: "",
