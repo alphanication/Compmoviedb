@@ -6,6 +6,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.compmoviedb.domain.models.Response
 import com.example.compmoviedb.domain.models.moviedetails.BelongsToCollectionD
 import com.example.compmoviedb.domain.models.moviedetails.MovieDetailsD
+import com.example.compmoviedb.domain.usecase.GetListMovieVideoByIdUseCase
 import com.example.compmoviedb.domain.usecase.GetMovieDetailsByIdUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
@@ -16,7 +17,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class DetailsMovieViewModel @Inject constructor(
-    private val getMovieDetailsByIdUseCase: GetMovieDetailsByIdUseCase
+    private val getMovieDetailsByIdUseCase: GetMovieDetailsByIdUseCase,
+    private val getListMovieVideoByIdUseCase: GetListMovieVideoByIdUseCase
 ) : ViewModel() {
 
     private val _movieDetails = MutableStateFlow<MovieDetailsD>(movieDetailsBase())
@@ -29,6 +31,18 @@ class DetailsMovieViewModel @Inject constructor(
                     is Response.Loading -> {}
                     is Response.Fail -> {}
                     is Response.Success -> _movieDetails.emit(response.data)
+                }
+            }
+        }
+    }
+
+    fun getListMovieVideo(movieId: Int) {
+        viewModelScope.launch(Dispatchers.IO) {
+            getListMovieVideoByIdUseCase.execute(movieId = movieId).collect { response ->
+                when (response) {
+                    is Response.Loading -> {}
+                    is Response.Fail -> {}
+                    is Response.Success -> Log.d("alpha33", response.data.resultMovieVideoDetailsDS.size.toString())
                 }
             }
         }
