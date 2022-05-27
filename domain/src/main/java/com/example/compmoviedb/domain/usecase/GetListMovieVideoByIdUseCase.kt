@@ -6,7 +6,7 @@ import com.example.compmoviedb.domain.repository.MoviesRepository
 import kotlinx.coroutines.flow.Flow
 
 class GetListMovieVideoByIdUseCase(private val moviesRepository: MoviesRepository) {
-    suspend fun execute(movieId: Int) : Flow<Response<MovieVideoD>> {
+    suspend fun execute(movieId: Int): Flow<Response<MovieVideoD>> {
         return moviesRepository.getListMovieVideoById(movieId = movieId)
     }
 }

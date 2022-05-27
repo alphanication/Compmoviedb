@@ -9,10 +9,10 @@ class BelongToCollectionEntityMapper : MapperData<BelongsToCollection, BelongsTo
     override fun mapFromEntity(type: BelongsToCollection): BelongsToCollectionD {
 
         return BelongsToCollectionD(
-                backdrop_path = type.backdrop_path ?: "",
-                id = type.id ?: 0,
-                name = type.name ?: "",
-                poster_path = type.poster_path ?: ""
+            backdrop_path = type.backdrop_path ?: "",
+            id = type.id ?: 0,
+            name = type.name ?: "",
+            poster_path = type.poster_path ?: ""
         )
     }
 }
