@@ -12,7 +12,7 @@ object Constants {
         const val MOVIEDB_BASE_IMAGE_URL = "https://image.tmdb.org/t/p/w500"
         const val VOTE_AVERAGE = "Среднее количество голосов: "
         const val RELEASED = "Дата релиза: "
-        const val GENRE = "Жанр: "
         const val PRODUCTION_COUNTRIES = "Страна производства: "
+        const val YOUTUBE = "YouTube"
     }
 }
