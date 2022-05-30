@@ -1,6 +1,7 @@
 package com.example.compmoviedb.domain.repository
 
 import com.example.compmoviedb.domain.models.Response
+import com.example.compmoviedb.domain.models.movieactors.ListActorsMovieD
 import com.example.compmoviedb.domain.models.moviedetails.MovieDetailsD
 import com.example.compmoviedb.domain.models.moviespopular.ListMoviesPopularD
 import com.example.compmoviedb.domain.models.movievideo.MovieVideoD
@@ -12,4 +13,6 @@ interface MoviesRepository {
     suspend fun getMovieDetailsById(movieId: Int): Flow<Response<MovieDetailsD>>
 
     suspend fun getListMovieVideoById(movieId: Int): Flow<Response<MovieVideoD>>
+
+    suspend fun getListActorsMovieById(movieId: Int) : Flow<Response<ListActorsMovieD>>
 }
