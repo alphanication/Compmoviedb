@@ -1,5 +1,6 @@
 package com.example.compmoviedb.data.storage.themoviedb
 
+import com.example.compmoviedb.data.storage.models.movieactors.ListActorsMovieEntity
 import com.example.compmoviedb.data.storage.models.moviedetails.MovieDetailsEntity
 import com.example.compmoviedb.data.storage.models.moviespopular.ListMoviesPopularEntity
 import com.example.compmoviedb.data.storage.models.movievideo.MovieVideoEntity
@@ -28,4 +29,11 @@ interface MovieDBApiInterface {
         @Query("api_key") key: String,
         @Query("language") language: String
     ): Call<MovieVideoEntity>
+
+    @GET("3/movie/{movie_id}/credits")
+    fun getListActorsMovieById(
+        @Path("movie_id") movieId: Int,
+        @Query("api_key") key: String,
+        @Query("language") language: String
+    ): Call<ListActorsMovieEntity>
 }

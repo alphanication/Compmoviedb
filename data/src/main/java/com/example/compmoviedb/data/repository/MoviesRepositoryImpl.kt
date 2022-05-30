@@ -1,10 +1,12 @@
 package com.example.compmoviedb.data.repository
 
+import com.example.compmoviedb.data.mappers.movieactors.ListActorsMovieEntityMapper
 import com.example.compmoviedb.data.mappers.moviedetails.MovieDetailsEntityMapper
 import com.example.compmoviedb.data.mappers.moviespopular.ListMoviesPopularEntityMapper
 import com.example.compmoviedb.data.mappers.movievideo.MovieVideoEntityMapper
 import com.example.compmoviedb.data.storage.MoviesStorage
 import com.example.compmoviedb.domain.models.Response
+import com.example.compmoviedb.domain.models.movieactors.ListActorsMovieD
 import com.example.compmoviedb.domain.models.moviedetails.MovieDetailsD
 import com.example.compmoviedb.domain.models.moviespopular.ListMoviesPopularD
 import com.example.compmoviedb.domain.models.movievideo.MovieVideoD
@@ -50,6 +52,20 @@ class MoviesRepositoryImpl(private val moviesStorage: MoviesStorage) : MoviesRep
                 is Response.Success -> emit(
                     Response.Success(
                         MovieVideoEntityMapper().mapFromEntity(type = response.data)
+                    )
+                )
+            }
+        }
+    }
+
+    override suspend fun getListActorsMovieById(movieId: Int): Flow<Response<ListActorsMovieD>> {
+        return moviesStorage.getListActorsMovieById(movieId = movieId).transform { response ->
+            when (response) {
+                is Response.Loading -> emit(Response.Loading())
+                is Response.Fail -> emit(Response.Fail(e = response.e))
+                is Response.Success -> emit(
+                    Response.Success(
+                        data = ListActorsMovieEntityMapper().mapFromEntity(type = response.data)
                     )
                 )
             }

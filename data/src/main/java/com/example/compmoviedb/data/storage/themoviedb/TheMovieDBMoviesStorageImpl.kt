@@ -1,6 +1,7 @@
 package com.example.compmoviedb.data.storage.themoviedb
 
 import com.example.compmoviedb.data.storage.MoviesStorage
+import com.example.compmoviedb.data.storage.models.movieactors.ListActorsMovieEntity
 import com.example.compmoviedb.data.storage.models.moviedetails.MovieDetailsEntity
 import com.example.compmoviedb.data.storage.models.moviespopular.ListMoviesPopularEntity
 import com.example.compmoviedb.data.storage.models.movievideo.MovieVideoEntity
@@ -87,6 +88,32 @@ class TheMovieDBMoviesStorageImpl(private val movieDBApiInterface: MovieDBApiInt
                 }
 
                 override fun onFailure(call: Call<MovieVideoEntity>, t: Throwable) {
+                    trySend(Response.Fail(e = t as Exception))
+                }
+            })
+
+            awaitClose { this.cancel() }
+        }
+
+    override suspend fun getListActorsMovieById(movieId: Int): Flow<Response<ListActorsMovieEntity>> =
+        callbackFlow {
+            trySend(Response.Loading())
+
+            movieDBApiInterface.getListActorsMovieById(
+                movieId = movieId,
+                key = MovieDBConstants.MOVIE_DB_KEY,
+                language = MovieDBConstants.LANGUAGE_RU
+            ).enqueue(object : Callback<ListActorsMovieEntity> {
+                override fun onResponse(
+                    call: Call<ListActorsMovieEntity>,
+                    response: retrofit2.Response<ListActorsMovieEntity>
+                ) {
+                    response.body().let {
+                        if (it != null) trySend(Response.Success(data = it))
+                    }
+                }
+
+                override fun onFailure(call: Call<ListActorsMovieEntity>, t: Throwable) {
                     trySend(Response.Fail(e = t as Exception))
                 }
             })
