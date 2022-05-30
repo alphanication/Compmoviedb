@@ -1,6 +1,7 @@
 package com.example.compmoviedb.di
 
 import com.example.compmoviedb.domain.repository.MoviesRepository
+import com.example.compmoviedb.domain.usecase.GetListActorsMovieByIdUseCase
 import com.example.compmoviedb.domain.usecase.GetListMovieVideoByIdUseCase
 import com.example.compmoviedb.domain.usecase.GetListMoviesPopularUseCase
 import com.example.compmoviedb.domain.usecase.GetMovieDetailsByIdUseCase
@@ -25,5 +26,10 @@ class DomainModule {
     @Provides
     fun providesGetListMovieVideoByIdUseCase(moviesRepository: MoviesRepository) : GetListMovieVideoByIdUseCase {
         return GetListMovieVideoByIdUseCase(moviesRepository = moviesRepository)
+    }
+
+    @Provides
+    fun providesGetListActorsMovieByIdUseCase(moviesRepository: MoviesRepository) : GetListActorsMovieByIdUseCase {
+        return GetListActorsMovieByIdUseCase(moviesRepository = moviesRepository)
     }
 }
