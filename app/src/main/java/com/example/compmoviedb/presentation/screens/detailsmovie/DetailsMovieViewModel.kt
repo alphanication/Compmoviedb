@@ -1,6 +1,5 @@
 package com.example.compmoviedb.presentation.screens.detailsmovie
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.compmoviedb.domain.models.Response
