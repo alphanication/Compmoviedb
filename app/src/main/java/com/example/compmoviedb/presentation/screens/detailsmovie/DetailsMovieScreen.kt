@@ -2,6 +2,8 @@ package com.example.compmoviedb.presentation.screens.detailsmovie
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CutCornerShape
 import androidx.compose.foundation.verticalScroll
@@ -14,19 +16,14 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.compose.ui.viewinterop.AndroidView
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import coil.compose.rememberImagePainter
 import com.example.compmoviedb.presentation.utils.Constants
-import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer
-import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener
-import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
 import java.util.*
 
 
@@ -39,6 +36,7 @@ fun DetailsMovieScreen(navController: NavController, movieId: String) {
     val movieDetails = mViewModel.movieDetails.collectAsState().value
 
     val movieVideoYoutubeID = mViewModel.movieVideoYoutubeID.collectAsState().value
+    val listActorsMovie = mViewModel.movieListActors.collectAsState().value
 
     LaunchedEffect(key1 = Unit, block = {
         mViewModel.getMovieDetailsById(movieId = movieId.toInt())
@@ -98,7 +96,16 @@ fun DetailsMovieScreen(navController: NavController, movieId: String) {
                 YoutubePlayer(youtubeVideoID = movieVideoYoutubeID)
             }
 
-            Spacer(modifier = Modifier.padding(top = 10.dp))
+            Spacer(modifier = Modifier.padding(top = 15.dp))
+
+            LazyRow(
+                modifier = Modifier
+                    .fillMaxWidth()
+            ) {
+                items(listActorsMovie.cast) { actor ->
+                    CardActors(navController = navController, actor = actor)
+                }
+            }
 
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally
@@ -120,34 +127,5 @@ fun DetailsMovieScreen(navController: NavController, movieId: String) {
                 }
             }
         }
-    }
-}
-
-@Composable
-fun YoutubePlayer(youtubeVideoID: String) {
-
-    val context = LocalContext.current
-
-    Column(
-        modifier = Modifier
-            .fillMaxWidth()
-            .wrapContentHeight(),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center
-    ) {
-        AndroidView(
-            factory = {
-                YouTubePlayerView(context).apply {
-
-                    this.addYouTubePlayerListener(object : AbstractYouTubePlayerListener() {
-                        override fun onReady(youTubePlayer: YouTubePlayer) {
-                            super.onReady(youTubePlayer)
-                            youTubePlayer.cueVideo(youtubeVideoID, 0F)
-                        }
-                    })
-
-                }
-            }
-        )
     }
 }
