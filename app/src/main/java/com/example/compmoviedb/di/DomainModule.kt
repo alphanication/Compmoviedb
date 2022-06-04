@@ -14,22 +14,22 @@ import dagger.hilt.components.SingletonComponent
 @Module
 class DomainModule {
     @Provides
-    fun providesGetListMoviesPopularUseCase(moviesRepository: MoviesRepository) : GetListMoviesPopularUseCase {
+    fun providesGetListMoviesPopularUseCase(moviesRepository: MoviesRepository): GetListMoviesPopularUseCase {
         return GetListMoviesPopularUseCase(moviesRepository = moviesRepository)
     }
 
     @Provides
-    fun providesGetMovieDetailsByIdUseCase(moviesRepository: MoviesRepository) : GetMovieDetailsByIdUseCase {
+    fun providesGetMovieDetailsByIdUseCase(moviesRepository: MoviesRepository): GetMovieDetailsByIdUseCase {
         return GetMovieDetailsByIdUseCase(moviesRepository = moviesRepository)
     }
 
     @Provides
-    fun providesGetListMovieVideoByIdUseCase(moviesRepository: MoviesRepository) : GetListMovieVideoByIdUseCase {
+    fun providesGetListMovieVideoByIdUseCase(moviesRepository: MoviesRepository): GetListMovieVideoByIdUseCase {
         return GetListMovieVideoByIdUseCase(moviesRepository = moviesRepository)
     }
 
     @Provides
-    fun providesGetListActorsMovieByIdUseCase(moviesRepository: MoviesRepository) : GetListActorsMovieByIdUseCase {
+    fun providesGetListActorsMovieByIdUseCase(moviesRepository: MoviesRepository): GetListActorsMovieByIdUseCase {
         return GetListActorsMovieByIdUseCase(moviesRepository = moviesRepository)
     }
 }

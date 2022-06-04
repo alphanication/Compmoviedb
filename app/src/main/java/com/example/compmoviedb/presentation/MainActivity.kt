@@ -9,7 +9,6 @@ import androidx.compose.material.Scaffold
 import androidx.compose.material.Surface
 import androidx.compose.ui.Modifier
 import androidx.core.content.ContextCompat
-import androidx.navigation.compose.rememberNavController
 import com.example.compmoviedb.R
 import com.example.compmoviedb.presentation.navigation.SetupNavHost
 import com.example.compmoviedb.presentation.ui.theme.CompmoviedbTheme

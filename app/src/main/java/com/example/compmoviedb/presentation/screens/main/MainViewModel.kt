@@ -2,8 +2,8 @@ package com.example.compmoviedb.presentation.screens.main
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.compmoviedb.domain.models.moviespopular.MoviePopularDetailsD
 import com.example.compmoviedb.domain.models.Response
+import com.example.compmoviedb.domain.models.moviespopular.MoviePopularDetailsD
 import com.example.compmoviedb.domain.usecase.GetListMoviesPopularUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers

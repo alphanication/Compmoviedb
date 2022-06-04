@@ -14,5 +14,5 @@ interface MoviesStorage {
 
     suspend fun getListMovieVideoById(movieId: Int): Flow<Response<MovieVideoEntity>>
 
-    suspend fun getListActorsMovieById(movieId: Int) : Flow<Response<ListActorsMovieEntity>>
+    suspend fun getListActorsMovieById(movieId: Int): Flow<Response<ListActorsMovieEntity>>
 }

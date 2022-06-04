@@ -21,7 +21,7 @@ class DataModule {
 
     @Provides
     @Singleton
-    fun provideRetrofit() : MovieDBApiInterface =
+    fun provideRetrofit(): MovieDBApiInterface =
         Retrofit.Builder()
             .baseUrl(baseUrl())
             .addConverterFactory(GsonConverterFactory.create())
@@ -30,13 +30,13 @@ class DataModule {
 
     @Provides
     @Singleton
-    fun providesMoviesStorage(movieDBApiInterface: MovieDBApiInterface) : MoviesStorage {
+    fun providesMoviesStorage(movieDBApiInterface: MovieDBApiInterface): MoviesStorage {
         return TheMovieDBMoviesStorageImpl(movieDBApiInterface = movieDBApiInterface)
     }
 
     @Provides
     @Singleton
-    fun providesMoviesRepository(moviesStorage: MoviesStorage) : MoviesRepository {
+    fun providesMoviesRepository(moviesStorage: MoviesStorage): MoviesRepository {
         return MoviesRepositoryImpl(moviesStorage = moviesStorage)
     }
 }
