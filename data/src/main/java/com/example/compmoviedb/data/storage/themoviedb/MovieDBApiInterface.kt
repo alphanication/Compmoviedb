@@ -10,6 +10,7 @@ import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface MovieDBApiInterface {
+
     @GET("3/movie/popular")
     fun getListPopularMovies(
         @Query("api_key") key: String,
@@ -36,4 +37,8 @@ interface MovieDBApiInterface {
         @Query("api_key") key: String,
         @Query("language") language: String
     ): Call<ListActorsMovieEntity>
+
+    companion object {
+        const val BASE_URL = "https://api.themoviedb.org/"
+    }
 }

@@ -16,14 +16,12 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 @Module
 class DataModule {
-    @Provides
-    fun baseUrl() = "https://api.themoviedb.org/"
 
     @Provides
     @Singleton
     fun provideRetrofit(): MovieDBApiInterface =
         Retrofit.Builder()
-            .baseUrl(baseUrl())
+            .baseUrl(MovieDBApiInterface.BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
             .create(MovieDBApiInterface::class.java)
