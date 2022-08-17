@@ -9,27 +9,29 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import javax.inject.Singleton
 
-@InstallIn(SingletonComponent::class)
 @Module
-class DomainModule {
-    @Provides
-    fun providesGetListMoviesPopularUseCase(moviesRepository: MoviesRepository): GetListMoviesPopularUseCase {
-        return GetListMoviesPopularUseCase(moviesRepository = moviesRepository)
-    }
+@InstallIn(SingletonComponent::class)
+object DomainModule {
 
     @Provides
-    fun providesGetMovieDetailsByIdUseCase(moviesRepository: MoviesRepository): GetMovieDetailsByIdUseCase {
-        return GetMovieDetailsByIdUseCase(moviesRepository = moviesRepository)
-    }
+    @Singleton
+    fun providesGetListMoviesPopularUseCase(moviesRepository: MoviesRepository): GetListMoviesPopularUseCase =
+        GetListMoviesPopularUseCase(moviesRepository = moviesRepository)
 
     @Provides
-    fun providesGetListMovieVideoByIdUseCase(moviesRepository: MoviesRepository): GetListMovieVideoByIdUseCase {
-        return GetListMovieVideoByIdUseCase(moviesRepository = moviesRepository)
-    }
+    @Singleton
+    fun providesGetMovieDetailsByIdUseCase(moviesRepository: MoviesRepository): GetMovieDetailsByIdUseCase =
+        GetMovieDetailsByIdUseCase(moviesRepository = moviesRepository)
 
     @Provides
-    fun providesGetListActorsMovieByIdUseCase(moviesRepository: MoviesRepository): GetListActorsMovieByIdUseCase {
-        return GetListActorsMovieByIdUseCase(moviesRepository = moviesRepository)
-    }
+    @Singleton
+    fun providesGetListMovieVideoByIdUseCase(moviesRepository: MoviesRepository): GetListMovieVideoByIdUseCase =
+        GetListMovieVideoByIdUseCase(moviesRepository = moviesRepository)
+
+    @Provides
+    @Singleton
+    fun providesGetListActorsMovieByIdUseCase(moviesRepository: MoviesRepository): GetListActorsMovieByIdUseCase =
+        GetListActorsMovieByIdUseCase(moviesRepository = moviesRepository)
 }

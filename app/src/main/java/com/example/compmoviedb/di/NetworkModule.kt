@@ -17,13 +17,11 @@ object NetworkModule {
 
     @Provides
     @Singleton
-    fun providesMoviesStorage(movieDBApiInterface: MovieDBApiInterface): MoviesStorage {
-        return TheMovieDBMoviesStorageImpl(movieDBApiInterface = movieDBApiInterface)
-    }
+    fun providesMoviesStorage(movieDBApiInterface: MovieDBApiInterface): MoviesStorage =
+        TheMovieDBMoviesStorageImpl(movieDBApiInterface = movieDBApiInterface)
 
     @Provides
     @Singleton
-    fun providesMoviesRepository(moviesStorage: MoviesStorage): MoviesRepository {
-        return MoviesRepositoryImpl(moviesStorage = moviesStorage)
-    }
+    fun providesMoviesRepository(moviesStorage: MoviesStorage): MoviesRepository =
+        MoviesRepositoryImpl(moviesStorage = moviesStorage)
 }
