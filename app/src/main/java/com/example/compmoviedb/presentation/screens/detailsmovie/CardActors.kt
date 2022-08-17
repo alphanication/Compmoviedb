@@ -17,7 +17,8 @@ import androidx.navigation.NavController
 import coil.compose.rememberImagePainter
 import com.example.compmoviedb.R
 import com.example.compmoviedb.domain.models.movieactors.CastD
-import com.example.compmoviedb.presentation.utils.Constants
+import com.example.compmoviedb.presentation.utils.ScreensConstants
+import com.example.compmoviedb.presentation.utils.URLConstants.MOVIEDB_BASE_IMAGE_URL
 
 @Composable
 fun CardActors(navController: NavController, actor: CastD) {
@@ -51,7 +52,7 @@ fun CardActors(navController: NavController, actor: CastD) {
                 .clip(CutCornerShape(15.dp)),
             painter = if (actor.profile_path.isNotEmpty()) {
                 rememberImagePainter(
-                    Constants.Keys.MOVIEDB_BASE_IMAGE_URL + actor.profile_path
+                    MOVIEDB_BASE_IMAGE_URL + actor.profile_path
                 )
             } else {
                 painterResource(id = R.drawable.ic_person)

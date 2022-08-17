@@ -18,6 +18,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -25,7 +26,9 @@ import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import coil.compose.rememberImagePainter
-import com.example.compmoviedb.presentation.utils.Constants
+import com.example.compmoviedb.R
+import com.example.compmoviedb.presentation.utils.ScreensConstants
+import com.example.compmoviedb.presentation.utils.URLConstants.MOVIEDB_BASE_IMAGE_URL
 import java.util.*
 
 
@@ -63,7 +66,7 @@ fun DetailsMovieScreen(navController: NavController, movieId: String) {
                     .size(300.dp)
                     .clip(CutCornerShape(15.dp)),
                 painter = rememberImagePainter(
-                    Constants.Keys.MOVIEDB_BASE_IMAGE_URL + movieDetails.poster_path
+                    MOVIEDB_BASE_IMAGE_URL + movieDetails.poster_path
                 ),
                 contentDescription = null,
                 contentScale = ContentScale.Crop
@@ -113,7 +116,7 @@ fun DetailsMovieScreen(navController: NavController, movieId: String) {
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 Text(
-                    text = Constants.Keys.RELEASED,
+                    text = stringResource(id = R.string.date_released),
                     fontWeight = FontWeight.Bold,
                 )
                 Text(text = movieDetails.release_date)
@@ -121,7 +124,7 @@ fun DetailsMovieScreen(navController: NavController, movieId: String) {
                 Spacer(modifier = Modifier.padding(top = 10.dp))
 
                 Text(
-                    text = Constants.Keys.PRODUCTION_COUNTRIES,
+                    text = stringResource(id = R.string.production_countries),
                     fontWeight = FontWeight.Bold,
                 )
                 movieDetails.production_countries.forEach { productionCountry ->

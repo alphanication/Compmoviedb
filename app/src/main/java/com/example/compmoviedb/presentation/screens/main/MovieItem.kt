@@ -13,15 +13,17 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import coil.compose.rememberImagePainter
+import com.example.compmoviedb.R
 import com.example.compmoviedb.domain.models.moviespopular.MoviePopularDetailsD
 import com.example.compmoviedb.presentation.navigation.NavRoute
-import com.example.compmoviedb.presentation.utils.Constants
+import com.example.compmoviedb.presentation.utils.URLConstants.MOVIEDB_BASE_IMAGE_URL
 import java.util.*
 
 @Composable
@@ -59,7 +61,7 @@ fun MovieItem(navController: NavController, item: MoviePopularDetailsD) {
                     .size(300.dp)
                     .clip(CutCornerShape(15.dp)),
                 painter = rememberImagePainter(
-                    Constants.Keys.MOVIEDB_BASE_IMAGE_URL + item.poster_path
+                    MOVIEDB_BASE_IMAGE_URL + item.poster_path
                 ),
                 contentDescription = null,
                 contentScale = ContentScale.FillWidth
@@ -72,7 +74,7 @@ fun MovieItem(navController: NavController, item: MoviePopularDetailsD) {
                 horizontalArrangement = Arrangement.Start
             ) {
                 Text(
-                    text = Constants.Keys.RELEASED,
+                    text = stringResource(id = R.string.date_released),
                     fontWeight = FontWeight.Bold,
                 )
 
@@ -84,7 +86,7 @@ fun MovieItem(navController: NavController, item: MoviePopularDetailsD) {
                 horizontalArrangement = Arrangement.Start
             ) {
                 Text(
-                    text = Constants.Keys.VOTE_AVERAGE,
+                    text = stringResource(id = R.string.vote_average),
                     fontWeight = FontWeight.Bold,
                     textAlign = TextAlign.Start
                 )

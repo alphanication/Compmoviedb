@@ -7,7 +7,8 @@ import androidx.navigation.compose.rememberNavController
 import com.example.compmoviedb.presentation.screens.detailsmovie.DetailsMovieScreen
 import com.example.compmoviedb.presentation.screens.main.MainScreen
 import com.example.compmoviedb.presentation.screens.splash.SplashScreen
-import com.example.compmoviedb.presentation.utils.Constants
+import com.example.compmoviedb.presentation.utils.ScreensConstants
+import com.example.compmoviedb.presentation.utils.StringsConstants.EMPTY_STRING
 
 @Composable
 fun SetupNavHost() {
@@ -27,10 +28,10 @@ fun SetupNavHost() {
                 navController = navController
             )
         }
-        composable(route = NavRoute.DetailsMovie.route + "/{${Constants.Keys.MOVIE_ID}}") { backStackEntry ->
+        composable(route = NavRoute.DetailsMovie.route + "/{${ScreensConstants.Args.MOVIE_ID_ARG}}") { backStackEntry ->
             DetailsMovieScreen(
                 navController = navController,
-                movieId = backStackEntry.arguments?.getString(Constants.Keys.MOVIE_ID) ?: ""
+                movieId = backStackEntry.arguments?.getString(ScreensConstants.Args.MOVIE_ID_ARG) ?: EMPTY_STRING
             )
         }
     }
