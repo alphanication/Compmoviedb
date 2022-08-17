@@ -9,7 +9,8 @@ import com.example.compmoviedb.domain.models.moviedetails.MovieDetailsD
 import com.example.compmoviedb.domain.usecase.GetListActorsMovieByIdUseCase
 import com.example.compmoviedb.domain.usecase.GetListMovieVideoByIdUseCase
 import com.example.compmoviedb.domain.usecase.GetMovieDetailsByIdUseCase
-import com.example.compmoviedb.presentation.utils.Constants
+import com.example.compmoviedb.presentation.utils.ScreensConstants
+import com.example.compmoviedb.presentation.utils.StringsConstants.YOUTUBE
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -59,7 +60,7 @@ class DetailsMovieViewModel @Inject constructor(
                     is Response.Fail -> {}
                     is Response.Success -> response.data.resultMovieVideoDetailsDS.forEach { movie ->
                         if (movieVideoYoutubeID.value.isEmpty()) {
-                            if (movie.site == Constants.Keys.YOUTUBE) _movieVideoYoutubeID.emit(
+                            if (movie.site == YOUTUBE) _movieVideoYoutubeID.emit(
                                 movie.key
                             )
                         }
