@@ -10,6 +10,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -18,6 +19,7 @@ import coil.compose.rememberImagePainter
 import com.example.compmoviedb.R
 import com.example.compmoviedb.domain.models.movieactors.CastD
 import com.example.compmoviedb.presentation.utils.ScreensConstants
+import com.example.compmoviedb.presentation.utils.StringsConstants.SPACE
 import com.example.compmoviedb.presentation.utils.URLConstants.MOVIEDB_BASE_IMAGE_URL
 
 @Composable
@@ -40,7 +42,7 @@ fun CardActors(navController: NavController, actor: CastD) {
 
             Text(
                 modifier = Modifier.padding(horizontal = 2.dp),
-                text = "(" + actor.name + ")"
+                text = stringResource(id = R.string.empty_quotes).replace(SPACE, actor.name)
             )
         }
 

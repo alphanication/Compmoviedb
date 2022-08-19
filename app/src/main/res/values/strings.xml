@@ -4,4 +4,5 @@
     <string name="vote_average">Среднее количество голосов:\u0020</string>
     <string name="date_released">Дата релиза:\u0020</string>
     <string name="production_countries">Страна производства:\u0020</string>
+    <string name="empty_quotes">( )</string>
 </resources>
