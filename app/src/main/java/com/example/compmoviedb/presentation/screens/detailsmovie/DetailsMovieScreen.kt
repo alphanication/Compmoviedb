@@ -27,7 +27,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import coil.compose.rememberImagePainter
 import com.example.compmoviedb.R
-import com.example.compmoviedb.presentation.utils.ScreensConstants
+import com.example.compmoviedb.presentation.items.YoutubePlayer
 import com.example.compmoviedb.presentation.utils.URLConstants.MOVIEDB_BASE_IMAGE_URL
 import java.util.*
 
@@ -52,85 +52,85 @@ fun DetailsMovieScreen(navController: NavController, movieId: String) {
     Scaffold(
         modifier = Modifier
             .fillMaxSize()
-            .padding(8.dp)
-    ) {
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .verticalScroll(state = scrollState),
-            verticalArrangement = Arrangement.Top,
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            Image(
-                modifier = Modifier
-                    .size(300.dp)
-                    .clip(CutCornerShape(15.dp)),
-                painter = rememberImagePainter(
-                    MOVIEDB_BASE_IMAGE_URL + movieDetails.poster_path
-                ),
-                contentDescription = null,
-                contentScale = ContentScale.Crop
-            )
-
-            Spacer(modifier = Modifier.padding(top = 10.dp))
-
-            Text(
-                modifier = Modifier.padding(horizontal = 10.dp),
-                text = movieDetails.title.uppercase(Locale.getDefault()),
-                fontSize = 24.sp,
-                fontWeight = FontWeight.Bold,
-                textAlign = TextAlign.Center
-            )
-
-            Spacer(modifier = Modifier.padding(top = 10.dp))
-
-            Divider(color = MaterialTheme.colors.primary, thickness = 2.dp)
-
-            Spacer(modifier = Modifier.padding(top = 10.dp))
-
-            Text(
-                modifier = Modifier.padding(horizontal = 10.dp),
-                fontSize = 16.sp,
-                text = movieDetails.overview,
-                textAlign = TextAlign.Justify
-            )
-
-            Spacer(modifier = Modifier.padding(top = 10.dp))
-
-            if (movieVideoYoutubeID.isNotEmpty()) {
-                YoutubePlayer(youtubeVideoID = movieVideoYoutubeID)
-            }
-
-            Spacer(modifier = Modifier.padding(top = 15.dp))
-
-            LazyRow(
-                modifier = Modifier
-                    .fillMaxWidth()
-            ) {
-                items(listActorsMovie.cast) { actor ->
-                    CardActors(navController = navController, actor = actor)
-                }
-            }
-
+            .padding(8.dp),
+        content = { padding ->
             Column(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .verticalScroll(state = scrollState)
+                    .padding(padding),
+                verticalArrangement = Arrangement.Top,
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                Text(
-                    text = stringResource(id = R.string.date_released),
-                    fontWeight = FontWeight.Bold,
+                Image(
+                    modifier = Modifier
+                        .size(300.dp)
+                        .clip(CutCornerShape(15.dp)),
+                    painter = rememberImagePainter(
+                        MOVIEDB_BASE_IMAGE_URL + movieDetails.poster_path
+                    ),
+                    contentDescription = null,
+                    contentScale = ContentScale.Crop
                 )
-                Text(text = movieDetails.release_date)
 
                 Spacer(modifier = Modifier.padding(top = 10.dp))
 
                 Text(
-                    text = stringResource(id = R.string.production_countries),
+                    modifier = Modifier.padding(horizontal = 10.dp),
+                    text = movieDetails.title.uppercase(Locale.getDefault()),
+                    fontSize = 24.sp,
                     fontWeight = FontWeight.Bold,
+                    textAlign = TextAlign.Center
                 )
-                movieDetails.production_countries.forEach { productionCountry ->
-                    Text(text = productionCountry.name.uppercase(Locale.getDefault()))
+
+                Spacer(modifier = Modifier.padding(top = 10.dp))
+
+                Divider(color = MaterialTheme.colors.primary, thickness = 2.dp)
+
+                Spacer(modifier = Modifier.padding(top = 10.dp))
+
+                Text(
+                    modifier = Modifier.padding(horizontal = 10.dp),
+                    fontSize = 16.sp,
+                    text = movieDetails.overview,
+                    textAlign = TextAlign.Justify
+                )
+
+                Spacer(modifier = Modifier.padding(top = 10.dp))
+
+                if (movieVideoYoutubeID.isNotEmpty()) {
+                    YoutubePlayer(youtubeVideoID = movieVideoYoutubeID)
+                }
+
+                Spacer(modifier = Modifier.padding(top = 15.dp))
+
+                LazyRow(
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    items(listActorsMovie.cast) { actor ->
+                        CardActors(navController = navController, actor = actor)
+                    }
+                }
+
+                Column(
+                    horizontalAlignment = Alignment.CenterHorizontally
+                ) {
+                    Text(
+                        text = stringResource(id = R.string.date_released),
+                        fontWeight = FontWeight.Bold,
+                    )
+                    Text(text = movieDetails.release_date)
+
+                    Spacer(modifier = Modifier.padding(top = 10.dp))
+
+                    Text(
+                        text = stringResource(id = R.string.production_countries),
+                        fontWeight = FontWeight.Bold,
+                    )
+                    movieDetails.production_countries.forEach { productionCountry ->
+                        Text(text = productionCountry.name.uppercase(Locale.getDefault()))
+                    }
                 }
             }
-        }
-    }
+        })
 }

@@ -1,9 +1,6 @@
-package com.example.compmoviedb.presentation.screens.detailsmovie
+package com.example.compmoviedb.presentation.items
 
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.wrapContentHeight
+import androidx.compose.foundation.layout.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -17,13 +14,13 @@ import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTube
 fun YoutubePlayer(youtubeVideoID: String) {
 
     val context = LocalContext.current
+    val VIDEO_START_DELAY = 0F
 
-    Column(
+    Box(
         modifier = Modifier
             .fillMaxWidth()
             .wrapContentHeight(),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center
+        contentAlignment = Alignment.Center
     ) {
         AndroidView(
             factory = {
@@ -32,7 +29,7 @@ fun YoutubePlayer(youtubeVideoID: String) {
                     this.addYouTubePlayerListener(object : AbstractYouTubePlayerListener() {
                         override fun onReady(youTubePlayer: YouTubePlayer) {
                             super.onReady(youTubePlayer)
-                            youTubePlayer.cueVideo(youtubeVideoID, 0F)
+                            youTubePlayer.cueVideo(youtubeVideoID, VIDEO_START_DELAY)
                         }
                     })
 
