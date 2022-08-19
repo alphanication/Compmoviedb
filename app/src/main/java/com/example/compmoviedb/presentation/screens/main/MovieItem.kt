@@ -19,7 +19,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import coil.compose.rememberImagePainter
+import coil.compose.rememberAsyncImagePainter
 import com.example.compmoviedb.R
 import com.example.compmoviedb.domain.models.moviespopular.MoviePopularDetailsD
 import com.example.compmoviedb.presentation.navigation.NavRoute
@@ -60,7 +60,7 @@ fun MovieItem(navController: NavController, item: MoviePopularDetailsD) {
                 modifier = Modifier
                     .size(300.dp)
                     .clip(CutCornerShape(15.dp)),
-                painter = rememberImagePainter(
+                painter = rememberAsyncImagePainter(
                     MOVIEDB_BASE_IMAGE_URL + item.poster_path
                 ),
                 contentDescription = null,
