@@ -31,16 +31,18 @@ fun MainScreen(navController: NavController) {
     Scaffold(
         modifier = Modifier
             .fillMaxSize()
-            .padding(15.dp)
-    ) {
-        LazyColumn(
-            modifier = Modifier.fillMaxSize(),
-            verticalArrangement = Arrangement.Center,
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            items(listMoviesPopular) { movie ->
-                MovieItem(navController = navController, item = movie)
+            .padding(15.dp),
+        content = { padding ->
+            LazyColumn(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(padding),
+                verticalArrangement = Arrangement.Center,
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+                items(listMoviesPopular) { movie ->
+                    MovieItem(navController = navController, item = movie)
+                }
             }
-        }
-    }
+        })
 }
