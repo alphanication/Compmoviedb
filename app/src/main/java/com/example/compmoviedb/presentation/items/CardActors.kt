@@ -15,10 +15,9 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import coil.compose.rememberImagePainter
+import coil.compose.rememberAsyncImagePainter
 import com.example.compmoviedb.R
 import com.example.compmoviedb.domain.models.movieactors.CastD
-import com.example.compmoviedb.presentation.utils.ScreensConstants
 import com.example.compmoviedb.presentation.utils.StringsConstants.SPACE
 import com.example.compmoviedb.presentation.utils.URLConstants.MOVIEDB_BASE_IMAGE_URL
 
@@ -52,13 +51,10 @@ fun CardActors(navController: NavController, actor: CastD) {
             modifier = Modifier
                 .size(300.dp)
                 .clip(CutCornerShape(15.dp)),
-            painter = if (actor.profile_path.isNotEmpty()) {
-                rememberImagePainter(
-                    MOVIEDB_BASE_IMAGE_URL + actor.profile_path
-                )
-            } else {
-                painterResource(id = R.drawable.ic_person)
-            },
+            painter = if (actor.profile_path.isNotEmpty()) rememberAsyncImagePainter(
+                MOVIEDB_BASE_IMAGE_URL + actor.profile_path
+            )
+            else painterResource(id = R.drawable.ic_person),
             contentDescription = null,
             contentScale = ContentScale.Crop
         )
