@@ -20,18 +20,17 @@ import kotlinx.coroutines.delay
 
 @Composable
 fun SplashScreen(navController: NavController) {
-    var stateAnimate by remember {
-        mutableStateOf(false)
-    }
+    val animationTimeMillis = 1500L
+    var stateAnimate by remember { mutableStateOf(false) }
 
     val alphaAnimation = animateFloatAsState(
         targetValue = if (stateAnimate) 1f else 0f,
-        animationSpec = tween(durationMillis = 1500)
+        animationSpec = tween(durationMillis = animationTimeMillis.toInt())
     )
 
     LaunchedEffect(key1 = Unit) {
         stateAnimate = true
-        delay(2000)
+        delay(animationTimeMillis)
         navController.navigate(NavRoute.Main.route)
     }
 
@@ -49,7 +48,7 @@ fun Splash(alpha: Float) {
                 .size(120.dp)
                 .alpha(alpha = alpha),
             imageVector = Icons.Default.PlayArrow,
-            contentDescription = "",
+            contentDescription = null,
             tint = Color.Black
         )
     }
