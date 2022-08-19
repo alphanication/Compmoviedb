@@ -31,7 +31,6 @@ import com.example.compmoviedb.presentation.items.YoutubePlayer
 import com.example.compmoviedb.presentation.utils.URLConstants.MOVIEDB_BASE_IMAGE_URL
 import java.util.*
 
-
 @Composable
 fun DetailsMovieScreen(navController: NavController, movieId: String) {
 
