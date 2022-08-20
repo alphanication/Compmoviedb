@@ -16,8 +16,8 @@ import kotlinx.coroutines.flow.transform
 
 class MoviesRepositoryImpl(private val moviesStorage: MoviesDataSource) : MoviesRepository {
 
-    override suspend fun getMoviesPopular(): Flow<Response<ListMoviesPopularD>> {
-        return moviesStorage.getMoviesPopular().transform { response ->
+    override suspend fun getMoviesPopular(): Flow<Response<ListMoviesPopularD>> =
+        moviesStorage.getMoviesPopular().transform { response ->
             when (response) {
                 is Response.Loading -> emit(Response.Loading())
                 is Response.Fail -> emit(Response.Fail(e = response.e))
@@ -28,10 +28,9 @@ class MoviesRepositoryImpl(private val moviesStorage: MoviesDataSource) : Movies
                 )
             }
         }
-    }
 
-    override suspend fun getMovieDetailsById(movieId: Int): Flow<Response<MovieDetailsD>> {
-        return moviesStorage.getMovieDetailsById(movieId = movieId).transform { response ->
+    override suspend fun getMovieDetailsById(movieId: Int): Flow<Response<MovieDetailsD>> =
+        moviesStorage.getMovieDetailsById(movieId = movieId).transform { response ->
             when (response) {
                 is Response.Loading -> emit(Response.Loading())
                 is Response.Fail -> emit(Response.Fail(e = response.e))
@@ -42,10 +41,9 @@ class MoviesRepositoryImpl(private val moviesStorage: MoviesDataSource) : Movies
                 )
             }
         }
-    }
 
-    override suspend fun getListVideoMovieById(movieId: Int): Flow<Response<MovieVideoD>> {
-        return moviesStorage.getListVideoMovieById(movieId = movieId).transform { response ->
+    override suspend fun getListVideoMovieById(movieId: Int): Flow<Response<MovieVideoD>> =
+        moviesStorage.getListVideoMovieById(movieId = movieId).transform { response ->
             when (response) {
                 is Response.Loading -> emit(Response.Loading())
                 is Response.Fail -> emit(Response.Fail(e = response.e))
@@ -56,10 +54,9 @@ class MoviesRepositoryImpl(private val moviesStorage: MoviesDataSource) : Movies
                 )
             }
         }
-    }
 
-    override suspend fun getListActorsMovieById(movieId: Int): Flow<Response<ListActorsMovieD>> {
-        return moviesStorage.getListActorsMovieById(movieId = movieId).transform { response ->
+    override suspend fun getListActorsMovieById(movieId: Int): Flow<Response<ListActorsMovieD>> =
+        moviesStorage.getListActorsMovieById(movieId = movieId).transform { response ->
             when (response) {
                 is Response.Loading -> emit(Response.Loading())
                 is Response.Fail -> emit(Response.Fail(e = response.e))
@@ -70,5 +67,4 @@ class MoviesRepositoryImpl(private val moviesStorage: MoviesDataSource) : Movies
                 )
             }
         }
-    }
 }
