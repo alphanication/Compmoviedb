@@ -7,9 +7,8 @@ import com.example.compmoviedb.domain.models.movieactors.ListActorsMovieD
 import com.example.compmoviedb.domain.models.moviedetails.BelongsToCollectionD
 import com.example.compmoviedb.domain.models.moviedetails.MovieDetailsD
 import com.example.compmoviedb.domain.usecase.GetListActorsMovieByIdUseCase
-import com.example.compmoviedb.domain.usecase.GetListMovieVideoByIdUseCase
+import com.example.compmoviedb.domain.usecase.GetListVideoMovieByIdUseCase
 import com.example.compmoviedb.domain.usecase.GetMovieDetailsByIdUseCase
-import com.example.compmoviedb.presentation.utils.ScreensConstants
 import com.example.compmoviedb.presentation.utils.StringsConstants.YOUTUBE
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
@@ -21,7 +20,7 @@ import javax.inject.Inject
 @HiltViewModel
 class DetailsMovieViewModel @Inject constructor(
     private val getMovieDetailsByIdUseCase: GetMovieDetailsByIdUseCase,
-    private val getListMovieVideoByIdUseCase: GetListMovieVideoByIdUseCase,
+    private val getListMovieVideoByIdUseCase: GetListVideoMovieByIdUseCase,
     private val getListActorsMovieByIdUseCase: GetListActorsMovieByIdUseCase
 ) : ViewModel() {
 
@@ -52,7 +51,7 @@ class DetailsMovieViewModel @Inject constructor(
         }
     }
 
-    fun getListMovieVideo(movieId: Int) {
+    fun getListVideoMovie(movieId: Int) {
         viewModelScope.launch(Dispatchers.IO) {
             getListMovieVideoByIdUseCase.execute(movieId = movieId).collect { response ->
                 when (response) {

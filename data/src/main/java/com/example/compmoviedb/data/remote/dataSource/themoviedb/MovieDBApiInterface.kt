@@ -4,6 +4,13 @@ import com.example.compmoviedb.data.models.remote.movieactors.ListActorsMovieEnt
 import com.example.compmoviedb.data.models.remote.moviedetails.MovieDetailsEntity
 import com.example.compmoviedb.data.models.remote.moviespopular.ListMoviesPopularEntity
 import com.example.compmoviedb.data.models.remote.movievideo.MovieVideoEntity
+import com.example.compmoviedb.data.remote.dataSource.themoviedb.MovieDBConstants.API_KEY_QUERY
+import com.example.compmoviedb.data.remote.dataSource.themoviedb.MovieDBConstants.LANGUAGE_QUERY
+import com.example.compmoviedb.data.remote.dataSource.themoviedb.MovieDBConstants.LIST_ACTORS_MOVIE_BY_ID_URL
+import com.example.compmoviedb.data.remote.dataSource.themoviedb.MovieDBConstants.LIST_VIDEO_MOVIE_BY_ID_URL
+import com.example.compmoviedb.data.remote.dataSource.themoviedb.MovieDBConstants.MOVIES_BY_ID_URL
+import com.example.compmoviedb.data.remote.dataSource.themoviedb.MovieDBConstants.MOVIES_POPULAR_URL
+import com.example.compmoviedb.data.remote.dataSource.themoviedb.MovieDBConstants.MOVIE_ID_PATH
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -11,31 +18,31 @@ import retrofit2.http.Query
 
 interface MovieDBApiInterface {
 
-    @GET("3/movie/popular")
+    @GET(MOVIES_POPULAR_URL)
     fun getListPopularMovies(
-        @Query("api_key") key: String,
-        @Query("language") language: String
+        @Query(API_KEY_QUERY) key: String,
+        @Query(LANGUAGE_QUERY) language: String
     ): Call<ListMoviesPopularEntity>
 
-    @GET("3/movie/{movie_id}")
+    @GET(MOVIES_BY_ID_URL)
     fun getMovieDetailsById(
-        @Path("movie_id") movieId: Int,
-        @Query("api_key") key: String,
-        @Query("language") language: String
+        @Path(MOVIE_ID_PATH) movieId: Int,
+        @Query(API_KEY_QUERY) key: String,
+        @Query(LANGUAGE_QUERY) language: String
     ): Call<MovieDetailsEntity>
 
-    @GET("3/movie/{movie_id}/videos")
-    fun getListMovieVideoById(
-        @Path("movie_id") movieId: Int,
-        @Query("api_key") key: String,
-        @Query("language") language: String
+    @GET(LIST_VIDEO_MOVIE_BY_ID_URL)
+    fun getListVideoMovieById(
+        @Path(MOVIE_ID_PATH) movieId: Int,
+        @Query(API_KEY_QUERY) key: String,
+        @Query(LANGUAGE_QUERY) language: String
     ): Call<MovieVideoEntity>
 
-    @GET("3/movie/{movie_id}/credits")
+    @GET(LIST_ACTORS_MOVIE_BY_ID_URL)
     fun getListActorsMovieById(
-        @Path("movie_id") movieId: Int,
-        @Query("api_key") key: String,
-        @Query("language") language: String
+        @Path(MOVIE_ID_PATH) movieId: Int,
+        @Query(API_KEY_QUERY) key: String,
+        @Query(LANGUAGE_QUERY) language: String
     ): Call<ListActorsMovieEntity>
 
     companion object {

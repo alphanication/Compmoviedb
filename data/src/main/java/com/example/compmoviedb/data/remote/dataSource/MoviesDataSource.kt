@@ -12,7 +12,7 @@ interface MoviesDataSource {
 
     suspend fun getMovieDetailsById(movieId: Int): Flow<Response<MovieDetailsEntity>>
 
-    suspend fun getListMovieVideoById(movieId: Int): Flow<Response<MovieVideoEntity>>
+    suspend fun getListVideoMovieById(movieId: Int): Flow<Response<MovieVideoEntity>>
 
     suspend fun getListActorsMovieById(movieId: Int): Flow<Response<ListActorsMovieEntity>>
 }

@@ -44,7 +44,7 @@ fun DetailsMovieScreen(navController: NavController, movieId: String) {
 
     LaunchedEffect(key1 = Unit, block = {
         mViewModel.getMovieDetailsById(movieId = movieId.toInt())
-        mViewModel.getListMovieVideo(movieId = movieId.toInt())
+        mViewModel.getListVideoMovie(movieId = movieId.toInt())
         mViewModel.getListActorsMovieById(movieId = movieId.toInt())
     })
 

@@ -44,8 +44,8 @@ class MoviesRepositoryImpl(private val moviesStorage: MoviesDataSource) : Movies
         }
     }
 
-    override suspend fun getListMovieVideoById(movieId: Int): Flow<Response<MovieVideoD>> {
-        return moviesStorage.getListMovieVideoById(movieId = movieId).transform { response ->
+    override suspend fun getListVideoMovieById(movieId: Int): Flow<Response<MovieVideoD>> {
+        return moviesStorage.getListVideoMovieById(movieId = movieId).transform { response ->
             when (response) {
                 is Response.Loading -> emit(Response.Loading())
                 is Response.Fail -> emit(Response.Fail(e = response.e))
