@@ -1,4 +1,4 @@
-package com.example.compmoviedb.data.storage.models.moviedetails
+package com.example.compmoviedb.data.dataSource.models.moviedetails
 
 data class ProductionCountry(
     val iso_3166_1: String?,

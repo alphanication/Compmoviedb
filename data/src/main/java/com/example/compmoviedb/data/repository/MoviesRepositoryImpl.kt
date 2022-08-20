@@ -4,7 +4,7 @@ import com.example.compmoviedb.data.mappers.movieactors.ListActorsMovieEntityMap
 import com.example.compmoviedb.data.mappers.moviedetails.MovieDetailsEntityMapper
 import com.example.compmoviedb.data.mappers.moviespopular.ListMoviesPopularEntityMapper
 import com.example.compmoviedb.data.mappers.movievideo.MovieVideoEntityMapper
-import com.example.compmoviedb.data.storage.MoviesStorage
+import com.example.compmoviedb.data.dataSource.MoviesDataSource
 import com.example.compmoviedb.domain.models.Response
 import com.example.compmoviedb.domain.models.movieactors.ListActorsMovieD
 import com.example.compmoviedb.domain.models.moviedetails.MovieDetailsD
@@ -14,7 +14,7 @@ import com.example.compmoviedb.domain.repository.MoviesRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.transform
 
-class MoviesRepositoryImpl(private val moviesStorage: MoviesStorage) : MoviesRepository {
+class MoviesRepositoryImpl(private val moviesStorage: MoviesDataSource) : MoviesRepository {
 
     override suspend fun getMoviesPopular(): Flow<Response<ListMoviesPopularD>> {
         return moviesStorage.getMoviesPopular().transform { response ->

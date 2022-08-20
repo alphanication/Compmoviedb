@@ -1,4 +1,4 @@
-package com.example.compmoviedb.data.storage.models.moviedetails
+package com.example.compmoviedb.data.dataSource.models.moviedetails
 
 data class BelongsToCollection(
     val backdrop_path: String?,

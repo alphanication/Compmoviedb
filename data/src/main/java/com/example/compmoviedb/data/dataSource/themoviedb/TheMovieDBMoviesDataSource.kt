@@ -1,10 +1,10 @@
-package com.example.compmoviedb.data.storage.themoviedb
+package com.example.compmoviedb.data.dataSource.themoviedb
 
-import com.example.compmoviedb.data.storage.MoviesStorage
-import com.example.compmoviedb.data.storage.models.movieactors.ListActorsMovieEntity
-import com.example.compmoviedb.data.storage.models.moviedetails.MovieDetailsEntity
-import com.example.compmoviedb.data.storage.models.moviespopular.ListMoviesPopularEntity
-import com.example.compmoviedb.data.storage.models.movievideo.MovieVideoEntity
+import com.example.compmoviedb.data.dataSource.MoviesDataSource
+import com.example.compmoviedb.data.dataSource.models.movieactors.ListActorsMovieEntity
+import com.example.compmoviedb.data.dataSource.models.moviedetails.MovieDetailsEntity
+import com.example.compmoviedb.data.dataSource.models.moviespopular.ListMoviesPopularEntity
+import com.example.compmoviedb.data.dataSource.models.movievideo.MovieVideoEntity
 import com.example.compmoviedb.domain.models.Response
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.channels.awaitClose
@@ -13,8 +13,8 @@ import kotlinx.coroutines.flow.callbackFlow
 import retrofit2.Call
 import retrofit2.Callback
 
-class TheMovieDBMoviesStorageImpl(private val movieDBApiInterface: MovieDBApiInterface) :
-    MoviesStorage {
+class TheMovieDBMoviesDataSource(private val movieDBApiInterface: MovieDBApiInterface) :
+    MoviesDataSource {
 
     override suspend fun getMoviesPopular(): Flow<Response<ListMoviesPopularEntity>> =
         callbackFlow {
@@ -22,7 +22,7 @@ class TheMovieDBMoviesStorageImpl(private val movieDBApiInterface: MovieDBApiInt
 
             movieDBApiInterface.getListPopularMovies(
                 key = MovieDBConstants.MOVIE_DB_KEY,
-                language = MovieDBConstants.LANGUAGE_RU
+                language = LanguageCodes.RU.name.lowercase()
             )
                 .enqueue(object : Callback<ListMoviesPopularEntity> {
 
@@ -31,7 +31,7 @@ class TheMovieDBMoviesStorageImpl(private val movieDBApiInterface: MovieDBApiInt
                         response: retrofit2.Response<ListMoviesPopularEntity>
                     ) {
                         response.body().let {
-                            if (it != null) trySend(Response.Success(data = it))
+                            it?.let { trySend(Response.Success(data = it)) }
                         }
                     }
 
@@ -50,14 +50,14 @@ class TheMovieDBMoviesStorageImpl(private val movieDBApiInterface: MovieDBApiInt
             movieDBApiInterface.getMovieDetailsById(
                 movieId = movieId,
                 key = MovieDBConstants.MOVIE_DB_KEY,
-                language = MovieDBConstants.LANGUAGE_RU
+                language = LanguageCodes.RU.name.lowercase()
             ).enqueue(object : Callback<MovieDetailsEntity> {
                 override fun onResponse(
                     call: Call<MovieDetailsEntity>,
                     response: retrofit2.Response<MovieDetailsEntity>
                 ) {
                     response.body().let {
-                        if (it != null) trySend(Response.Success(data = it))
+                        it?.let { trySend(Response.Success(data = it)) }
                     }
                 }
 
@@ -76,14 +76,14 @@ class TheMovieDBMoviesStorageImpl(private val movieDBApiInterface: MovieDBApiInt
             movieDBApiInterface.getListMovieVideoById(
                 movieId = movieId,
                 key = MovieDBConstants.MOVIE_DB_KEY,
-                language = MovieDBConstants.LANGUAGE_RU
+                language = LanguageCodes.RU.name.lowercase()
             ).enqueue(object : Callback<MovieVideoEntity> {
                 override fun onResponse(
                     call: Call<MovieVideoEntity>,
                     response: retrofit2.Response<MovieVideoEntity>
                 ) {
                     response.body().let {
-                        if (it != null) trySend(Response.Success(data = it))
+                        it?.let { trySend(Response.Success(data = it)) }
                     }
                 }
 
@@ -100,16 +100,16 @@ class TheMovieDBMoviesStorageImpl(private val movieDBApiInterface: MovieDBApiInt
             trySend(Response.Loading())
 
             movieDBApiInterface.getListActorsMovieById(
-                movieId = movieId,
                 key = MovieDBConstants.MOVIE_DB_KEY,
-                language = MovieDBConstants.LANGUAGE_RU
+                movieId = movieId,
+                language = LanguageCodes.RU.name.lowercase()
             ).enqueue(object : Callback<ListActorsMovieEntity> {
                 override fun onResponse(
                     call: Call<ListActorsMovieEntity>,
                     response: retrofit2.Response<ListActorsMovieEntity>
                 ) {
                     response.body().let {
-                        if (it != null) trySend(Response.Success(data = it))
+                        it?.let { trySend(Response.Success(data = it)) }
                     }
                 }
 

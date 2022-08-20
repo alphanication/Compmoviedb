@@ -1,9 +1,9 @@
-package com.example.compmoviedb.data.storage.themoviedb
+package com.example.compmoviedb.data.dataSource.themoviedb
 
-import com.example.compmoviedb.data.storage.models.movieactors.ListActorsMovieEntity
-import com.example.compmoviedb.data.storage.models.moviedetails.MovieDetailsEntity
-import com.example.compmoviedb.data.storage.models.moviespopular.ListMoviesPopularEntity
-import com.example.compmoviedb.data.storage.models.movievideo.MovieVideoEntity
+import com.example.compmoviedb.data.dataSource.models.movieactors.ListActorsMovieEntity
+import com.example.compmoviedb.data.dataSource.models.moviedetails.MovieDetailsEntity
+import com.example.compmoviedb.data.dataSource.models.moviespopular.ListMoviesPopularEntity
+import com.example.compmoviedb.data.dataSource.models.movievideo.MovieVideoEntity
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Path
