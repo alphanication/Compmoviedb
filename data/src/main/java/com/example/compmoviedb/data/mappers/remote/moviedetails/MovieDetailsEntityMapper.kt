@@ -7,9 +7,8 @@ import com.example.compmoviedb.domain.models.moviedetails.MovieDetailsD
 
 class MovieDetailsEntityMapper : MapperData<MovieDetailsEntity, MovieDetailsD> {
 
-    override fun mapFromEntity(type: MovieDetailsEntity): MovieDetailsD {
-
-        return MovieDetailsD(
+    override fun mapFromEntity(type: MovieDetailsEntity): MovieDetailsD =
+        MovieDetailsD(
             adult = type.adult ?: false,
             backdrop_path = type.backdrop_path ?: "",
             belongs_to_collection = BelongToCollectionEntityMapper()
@@ -47,5 +46,4 @@ class MovieDetailsEntityMapper : MapperData<MovieDetailsEntity, MovieDetailsD> {
             vote_average = type.vote_average ?: 0.0,
             vote_count = type.vote_count ?: 0
         )
-    }
 }
