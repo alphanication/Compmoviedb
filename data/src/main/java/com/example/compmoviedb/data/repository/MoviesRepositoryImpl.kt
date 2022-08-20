@@ -4,7 +4,7 @@ import com.example.compmoviedb.data.mappers.movieactors.ListActorsMovieEntityMap
 import com.example.compmoviedb.data.mappers.moviedetails.MovieDetailsEntityMapper
 import com.example.compmoviedb.data.mappers.moviespopular.ListMoviesPopularEntityMapper
 import com.example.compmoviedb.data.mappers.movievideo.MovieVideoEntityMapper
-import com.example.compmoviedb.data.dataSource.MoviesDataSource
+import com.example.compmoviedb.data.remote.dataSource.MoviesDataSource
 import com.example.compmoviedb.domain.models.Response
 import com.example.compmoviedb.domain.models.movieactors.ListActorsMovieD
 import com.example.compmoviedb.domain.models.moviedetails.MovieDetailsD

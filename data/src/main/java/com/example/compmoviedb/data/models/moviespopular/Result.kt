@@ -1,4 +1,4 @@
-package com.example.compmoviedb.data.dataSource.models.moviespopular
+package com.example.compmoviedb.data.models.moviespopular
 
 data class Result(
     val adult: Boolean,

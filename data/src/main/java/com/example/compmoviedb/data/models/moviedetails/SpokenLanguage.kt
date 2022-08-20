@@ -1,4 +1,4 @@
-package com.example.compmoviedb.data.dataSource.models.moviedetails
+package com.example.compmoviedb.data.models.moviedetails
 
 data class SpokenLanguage(
     val iso_639_1: String?,

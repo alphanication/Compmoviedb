@@ -1,9 +1,9 @@
 package com.example.compmoviedb.di
 
 import com.example.compmoviedb.data.repository.MoviesRepositoryImpl
-import com.example.compmoviedb.data.dataSource.MoviesDataSource
-import com.example.compmoviedb.data.dataSource.themoviedb.MovieDBApiInterface
-import com.example.compmoviedb.data.dataSource.themoviedb.TheMovieDBMoviesDataSource
+import com.example.compmoviedb.data.remote.dataSource.MoviesDataSource
+import com.example.compmoviedb.data.remote.dataSource.themoviedb.MovieDBApiInterface
+import com.example.compmoviedb.data.remote.dataSource.themoviedb.TheMovieDBMoviesDataSource
 import com.example.compmoviedb.domain.repository.MoviesRepository
 import dagger.Module
 import dagger.Provides

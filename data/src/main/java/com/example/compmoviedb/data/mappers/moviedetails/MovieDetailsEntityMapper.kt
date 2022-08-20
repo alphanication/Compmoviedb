@@ -1,8 +1,8 @@
 package com.example.compmoviedb.data.mappers.moviedetails
 
 import com.example.compmoviedb.data.mappers.MapperData
-import com.example.compmoviedb.data.dataSource.models.moviedetails.BelongsToCollection
-import com.example.compmoviedb.data.dataSource.models.moviedetails.MovieDetailsEntity
+import com.example.compmoviedb.data.models.moviedetails.BelongsToCollection
+import com.example.compmoviedb.data.models.moviedetails.MovieDetailsEntity
 import com.example.compmoviedb.domain.models.moviedetails.MovieDetailsD
 
 class MovieDetailsEntityMapper : MapperData<MovieDetailsEntity, MovieDetailsD> {

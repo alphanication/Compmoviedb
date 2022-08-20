@@ -1,7 +1,7 @@
 package com.example.compmoviedb.data.mappers.moviespopular
 
 import com.example.compmoviedb.data.mappers.MapperData
-import com.example.compmoviedb.data.dataSource.models.moviespopular.Result
+import com.example.compmoviedb.data.models.moviespopular.Result
 import com.example.compmoviedb.domain.models.moviespopular.MoviePopularDetailsD
 
 class ResultListMoviesEntityMapper : MapperData<List<Result>, List<MoviePopularDetailsD>> {
