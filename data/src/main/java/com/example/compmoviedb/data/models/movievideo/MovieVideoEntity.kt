@@ -1,4 +1,4 @@
-package com.example.compmoviedb.data.dataSource.models.movievideo
+package com.example.compmoviedb.data.models.movievideo
 
 data class MovieVideoEntity(
     val id: Int?,

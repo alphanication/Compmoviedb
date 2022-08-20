@@ -1,7 +1,7 @@
 package com.example.compmoviedb.data.mappers.moviedetails
 
 import com.example.compmoviedb.data.mappers.MapperData
-import com.example.compmoviedb.data.dataSource.models.moviedetails.ProductionCompany
+import com.example.compmoviedb.data.models.moviedetails.ProductionCompany
 import com.example.compmoviedb.domain.models.moviedetails.ProductionCompanyD
 
 class ListProductionCompanyEntityMapper :

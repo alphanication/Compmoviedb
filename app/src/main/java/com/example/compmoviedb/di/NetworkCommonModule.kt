@@ -1,6 +1,6 @@
 package com.example.compmoviedb.di
 
-import com.example.compmoviedb.data.dataSource.themoviedb.MovieDBApiInterface
+import com.example.compmoviedb.data.remote.dataSource.themoviedb.MovieDBApiInterface
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
