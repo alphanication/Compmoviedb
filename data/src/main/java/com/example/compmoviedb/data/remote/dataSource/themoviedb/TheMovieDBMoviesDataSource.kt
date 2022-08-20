@@ -69,11 +69,11 @@ class TheMovieDBMoviesDataSource(private val movieDBApiInterface: MovieDBApiInte
             awaitClose { this.cancel() }
         }
 
-    override suspend fun getListMovieVideoById(movieId: Int): Flow<Response<MovieVideoEntity>> =
+    override suspend fun getListVideoMovieById(movieId: Int): Flow<Response<MovieVideoEntity>> =
         callbackFlow {
             trySend(Response.Loading())
 
-            movieDBApiInterface.getListMovieVideoById(
+            movieDBApiInterface.getListVideoMovieById(
                 movieId = movieId,
                 key = MovieDBConstants.MOVIE_DB_KEY,
                 language = LanguageCodes.RU.name.lowercase()

@@ -12,7 +12,7 @@ interface MoviesRepository {
 
     suspend fun getMovieDetailsById(movieId: Int): Flow<Response<MovieDetailsD>>
 
-    suspend fun getListMovieVideoById(movieId: Int): Flow<Response<MovieVideoD>>
+    suspend fun getListVideoMovieById(movieId: Int): Flow<Response<MovieVideoD>>
 
     suspend fun getListActorsMovieById(movieId: Int): Flow<Response<ListActorsMovieD>>
 }

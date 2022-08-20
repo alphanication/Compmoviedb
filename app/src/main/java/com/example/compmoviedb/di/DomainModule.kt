@@ -2,7 +2,7 @@ package com.example.compmoviedb.di
 
 import com.example.compmoviedb.domain.repository.MoviesRepository
 import com.example.compmoviedb.domain.usecase.GetListActorsMovieByIdUseCase
-import com.example.compmoviedb.domain.usecase.GetListMovieVideoByIdUseCase
+import com.example.compmoviedb.domain.usecase.GetListVideoMovieByIdUseCase
 import com.example.compmoviedb.domain.usecase.GetListMoviesPopularUseCase
 import com.example.compmoviedb.domain.usecase.GetMovieDetailsByIdUseCase
 import dagger.Module
@@ -27,8 +27,8 @@ object DomainModule {
 
     @Provides
     @Singleton
-    fun providesGetListMovieVideoByIdUseCase(moviesRepository: MoviesRepository): GetListMovieVideoByIdUseCase =
-        GetListMovieVideoByIdUseCase(moviesRepository = moviesRepository)
+    fun providesGetListVideoMovieByIdUseCase(moviesRepository: MoviesRepository): GetListVideoMovieByIdUseCase =
+        GetListVideoMovieByIdUseCase(moviesRepository = moviesRepository)
 
     @Provides
     @Singleton
