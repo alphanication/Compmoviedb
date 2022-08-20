@@ -1,4 +1,4 @@
-package com.example.compmoviedb.data.storage.models.movieactors
+package com.example.compmoviedb.data.dataSource.models.movieactors
 
 data class ListActorsMovieEntity(
     val cast: List<Cast>?,

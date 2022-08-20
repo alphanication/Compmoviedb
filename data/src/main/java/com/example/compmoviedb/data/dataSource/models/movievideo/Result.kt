@@ -1,4 +1,4 @@
-package com.example.compmoviedb.data.storage.models.movievideo
+package com.example.compmoviedb.data.dataSource.models.movievideo
 
 data class Result(
     val id: String?,

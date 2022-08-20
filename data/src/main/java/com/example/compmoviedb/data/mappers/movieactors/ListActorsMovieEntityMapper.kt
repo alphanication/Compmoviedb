@@ -1,7 +1,7 @@
 package com.example.compmoviedb.data.mappers.movieactors
 
 import com.example.compmoviedb.data.mappers.MapperData
-import com.example.compmoviedb.data.storage.models.movieactors.ListActorsMovieEntity
+import com.example.compmoviedb.data.dataSource.models.movieactors.ListActorsMovieEntity
 import com.example.compmoviedb.domain.models.movieactors.ListActorsMovieD
 
 class ListActorsMovieEntityMapper : MapperData<ListActorsMovieEntity, ListActorsMovieD> {
