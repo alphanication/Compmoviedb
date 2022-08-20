@@ -1,9 +1,9 @@
 package com.example.compmoviedb.data.repository
 
-import com.example.compmoviedb.data.mappers.movieactors.ListActorsMovieEntityMapper
-import com.example.compmoviedb.data.mappers.moviedetails.MovieDetailsEntityMapper
-import com.example.compmoviedb.data.mappers.moviespopular.ListMoviesPopularEntityMapper
-import com.example.compmoviedb.data.mappers.movievideo.MovieVideoEntityMapper
+import com.example.compmoviedb.data.mappers.remote.movieactors.ListActorsMovieEntityMapper
+import com.example.compmoviedb.data.mappers.remote.moviedetails.MovieDetailsEntityMapper
+import com.example.compmoviedb.data.mappers.remote.moviespopular.ListMoviesPopularEntityMapper
+import com.example.compmoviedb.data.mappers.remote.movievideo.MovieVideoEntityMapper
 import com.example.compmoviedb.data.remote.dataSource.MoviesDataSource
 import com.example.compmoviedb.domain.models.Response
 import com.example.compmoviedb.domain.models.movieactors.ListActorsMovieD

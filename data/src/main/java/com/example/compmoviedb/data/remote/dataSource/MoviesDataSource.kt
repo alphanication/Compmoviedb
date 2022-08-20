@@ -1,9 +1,9 @@
 package com.example.compmoviedb.data.remote.dataSource
 
-import com.example.compmoviedb.data.models.movieactors.ListActorsMovieEntity
-import com.example.compmoviedb.data.models.moviedetails.MovieDetailsEntity
-import com.example.compmoviedb.data.models.moviespopular.ListMoviesPopularEntity
-import com.example.compmoviedb.data.models.movievideo.MovieVideoEntity
+import com.example.compmoviedb.data.models.remote.movieactors.ListActorsMovieEntity
+import com.example.compmoviedb.data.models.remote.moviedetails.MovieDetailsEntity
+import com.example.compmoviedb.data.models.remote.moviespopular.ListMoviesPopularEntity
+import com.example.compmoviedb.data.models.remote.movievideo.MovieVideoEntity
 import com.example.compmoviedb.domain.models.Response
 import kotlinx.coroutines.flow.Flow
 
