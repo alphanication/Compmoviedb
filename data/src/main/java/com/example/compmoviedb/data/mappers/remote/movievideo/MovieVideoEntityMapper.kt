@@ -6,11 +6,10 @@ import com.example.compmoviedb.domain.models.movievideo.MovieVideoD
 
 class MovieVideoEntityMapper : MapperData<MovieVideoEntity, MovieVideoD> {
 
-    override fun mapFromEntity(type: MovieVideoEntity): MovieVideoD {
-        return MovieVideoD(
+    override fun mapFromEntity(type: MovieVideoEntity): MovieVideoD =
+        MovieVideoD(
             id = type.id ?: 0,
             resultMovieVideoDetailsDS = ResultListMovieVideoMapper()
                 .mapFromEntity(type = type.results ?: listOf())
         )
-    }
 }

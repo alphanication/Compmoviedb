@@ -6,12 +6,11 @@ import com.example.compmoviedb.domain.models.moviespopular.ListMoviesPopularD
 
 class ListMoviesPopularEntityMapper : MapperData<ListMoviesPopularEntity, ListMoviesPopularD> {
 
-    override fun mapFromEntity(type: ListMoviesPopularEntity): ListMoviesPopularD {
-        return ListMoviesPopularD(
+    override fun mapFromEntity(type: ListMoviesPopularEntity): ListMoviesPopularD =
+        ListMoviesPopularD(
             page = type.page,
             moviesPopularDetails = ResultListMoviesEntityMapper().mapFromEntity(type.results),
             total_pages = type.total_pages,
             total_results = type.total_results
         )
-    }
 }
