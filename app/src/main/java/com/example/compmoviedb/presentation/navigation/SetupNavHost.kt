@@ -4,9 +4,9 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.compmoviedb.presentation.screens.detailsmovie.DetailsMovieScreen
-import com.example.compmoviedb.presentation.screens.main.MainScreen
-import com.example.compmoviedb.presentation.screens.splash.SplashScreen
+import com.example.compmoviedb.presentation.ui.screens.detailsmovie.DetailsMovieScreen
+import com.example.compmoviedb.presentation.ui.screens.main.MainScreen
+import com.example.compmoviedb.presentation.ui.screens.splash.SplashScreen
 import com.example.compmoviedb.presentation.utils.ScreensConstants
 import com.example.compmoviedb.presentation.utils.StringsConstants.EMPTY_STRING
 

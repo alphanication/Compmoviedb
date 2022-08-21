@@ -1,4 +1,4 @@
-package com.example.compmoviedb.presentation.screens.detailsmovie
+package com.example.compmoviedb.presentation.ui.screens.detailsmovie
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
@@ -27,7 +27,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import coil.compose.rememberImagePainter
 import com.example.compmoviedb.R
-import com.example.compmoviedb.presentation.items.YoutubePlayer
+import com.example.compmoviedb.presentation.ui.items.YoutubePlayer
 import com.example.compmoviedb.presentation.utils.URLConstants.MOVIEDB_BASE_IMAGE_URL
 import java.util.*
 

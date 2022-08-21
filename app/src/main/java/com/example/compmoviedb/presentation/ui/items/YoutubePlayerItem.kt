@@ -1,4 +1,4 @@
-package com.example.compmoviedb.presentation.items
+package com.example.compmoviedb.presentation.ui.items
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.runtime.Composable

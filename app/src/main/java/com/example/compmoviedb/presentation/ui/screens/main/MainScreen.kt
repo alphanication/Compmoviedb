@@ -1,6 +1,6 @@
 @file:OptIn(ExperimentalCoilApi::class)
 
-package com.example.compmoviedb.presentation.screens.main
+package com.example.compmoviedb.presentation.ui.screens.main
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.fillMaxSize

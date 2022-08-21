@@ -1,4 +1,4 @@
-package com.example.compmoviedb.presentation.screens.detailsmovie
+package com.example.compmoviedb.presentation.ui.screens.detailsmovie
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
