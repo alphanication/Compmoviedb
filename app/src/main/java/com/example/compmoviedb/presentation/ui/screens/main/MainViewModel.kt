@@ -1,4 +1,4 @@
-package com.example.compmoviedb.presentation.screens.main
+package com.example.compmoviedb.presentation.ui.screens.main
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

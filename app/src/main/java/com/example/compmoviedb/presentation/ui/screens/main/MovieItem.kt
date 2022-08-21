@@ -1,4 +1,4 @@
-package com.example.compmoviedb.presentation.screens.main
+package com.example.compmoviedb.presentation.ui.screens.main
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
